@@ -1,0 +1,10 @@
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-10-16 17:42:15
+project --topLevelPackage com.acme.doktorics --projectName roo-jquery-bootstrap --java 6 --packaging WAR
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-10-16 17:42:21
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-10-16 17:43:18
+persistence setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE
+entity jpa --class ~.model.Client
+field string --fieldName name --notNull --sizeMin 3
+field string --fieldName adress
+web mvc setup
+web mvc scaffold --class ~.web.ClientController

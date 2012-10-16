@@ -1,0 +1,12 @@
+<aspectj>
+<aspects>
+<aspect name="com.acme.doktorics.model.Client_Roo_ToString"/>
+<aspect name="com.acme.doktorics.web.ApplicationConversionServiceFactoryBean_Roo_ConversionService"/>
+<aspect name="com.acme.doktorics.model.Client_Roo_Jpa_ActiveRecord"/>
+<aspect name="com.acme.doktorics.model.Client_Roo_Configurable"/>
+<aspect name="com.acme.doktorics.web.ClientController_Roo_Controller"/>
+<aspect name="com.acme.doktorics.model.Client_Roo_Jpa_Entity"/>
+<aspect name="com.acme.doktorics.model.Client_Roo_JavaBean"/>
+</aspects>
+</aspectj>
+
