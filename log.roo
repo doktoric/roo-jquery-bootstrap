@@ -8,3 +8,5 @@ field string --fieldName name --notNull --sizeMin 3
 field string --fieldName adress
 web mvc setup
 web mvc scaffold --class ~.web.ClientController
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-10-17 08:49:00
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-10-17 10:16:05

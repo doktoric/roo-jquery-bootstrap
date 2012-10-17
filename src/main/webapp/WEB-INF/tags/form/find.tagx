@@ -15,7 +15,7 @@
       <spring:message code="label_${fn:toLowerCase(entityClass)}_plural" var="label" htmlEscape="false" />
     </c:if>
     <spring:message arguments="${fn:escapeXml(label)}" code="entity_find" var="title_msg" htmlEscape="false" />
-    <util:panel id="${id}" title="${title_msg}" openPane="${openPane}">
+    <util:bpanel id="${id}" title="${title_msg}" openPane="${openPane}">
       <spring:url value="${path}" var="form_url" />
       <form:form action="${form_url}" method="GET">
         <input type="hidden" name="find" value="${fn:escapeXml(finderName)}" />
@@ -26,6 +26,6 @@
           <input id="proceed" type="submit" value="${fn:escapeXml(find_button)}"/>
         </div>
       </form:form>
-    </util:panel>
+    </util:bpanel>
   </c:if>
 </jsp:root>

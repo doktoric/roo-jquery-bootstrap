@@ -85,40 +85,40 @@
       <spring:escapeBody javaScriptEscape="true" >${field}</spring:escapeBody>
     </c:set>
     
-    <div id="_${fn:escapeXml(id)}_id">
-      <label for="_${sec_field}_id">
+    <div id="_${fn:escapeXml(id)}_id" class="control-group">
+      <label for="_${sec_field}_id" class="control-label">
         <c:out value="${fn:escapeXml(label)}" />:
       </label>
-      <div class="input">
-      <c:choose>
-        <c:when test="${disableFormBinding}">
-          <input id="_${sec_field}_id" name="${sec_field}" type="${fn:escapeXml(type)}" class="${size}" />
-        </c:when>
-        <c:otherwise>
-          <c:choose>
-            <c:when test="${type eq 'password'}">
-              <form:password id="_${sec_field}_id" path="${sec_field}" disabled="${disabled}" cssClass="${size}" />
-            </c:when>
-            <c:otherwise>
-              <form:input id="_${sec_field}_id" path="${sec_field}" disabled="${disabled}" cssClass="${size}" />
-            </c:otherwise>
-          </c:choose>
-          
-          <form:errors cssClass="error" id="_${sec_field}_error_id" path="${sec_field}" />
-        </c:otherwise>
-      </c:choose>
-      <c:choose>
-        <c:when test="${required}">
-          <spring:message code="field_required" var="field_required" htmlEscape="false" />
-          <spring:message argumentSeparator="," arguments="${label},(${field_required})" code="field_simple_validation" var="field_validation" htmlEscape="false" />	      
-        </c:when>
-        <c:otherwise>
-          <spring:message argumentSeparator="," arguments="${label}, " code="field_simple_validation" var="field_validation" htmlEscape="false" />
-        </c:otherwise>
-      </c:choose>
+      <div class="controls">
+	      <c:choose>
+	        <c:when test="${disableFormBinding}">
+	          <input id="_${sec_field}_id" name="${sec_field}" type="${fn:escapeXml(type)}" class="${size}" />
+	        </c:when>
+	        <c:otherwise>
+	          <c:choose>
+	            <c:when test="${type eq 'password'}">
+	              <form:password id="_${sec_field}_id" path="${sec_field}" disabled="${disabled}" cssClass="${size}" />
+	            </c:when>
+	            <c:otherwise>
+	              <form:input id="_${sec_field}_id" path="${sec_field}" disabled="${disabled}" cssClass="${size}" />
+	            </c:otherwise>
+	          </c:choose>
+	          
+	          <form:errors cssClass="text-error" id="_${sec_field}_error_id" path="${sec_field}" />
+	        </c:otherwise>
+	      </c:choose>
+	      <c:choose>
+	        <c:when test="${required}">
+	          <spring:message code="field_required" var="field_required" htmlEscape="false" />
+	          <spring:message argumentSeparator="," arguments="${label},(${field_required})" code="field_simple_validation" var="field_validation" htmlEscape="false" />	      
+	        </c:when>
+	        <c:otherwise>
+	          <spring:message argumentSeparator="," arguments="${label}, " code="field_simple_validation" var="field_validation" htmlEscape="false" />
+	        </c:otherwise>
+	      </c:choose>
       </div>
     </div>
-    <br />
+   
     <spring:message code="field_invalid_email" var="field_invalid_email" htmlEscape="false" />
     <c:if test="${empty title}">
       <c:set value="${field_validation}" var="title" />

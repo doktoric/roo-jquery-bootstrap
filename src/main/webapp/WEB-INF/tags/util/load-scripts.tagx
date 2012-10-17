@@ -1,37 +1,131 @@
-<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags" version="2.0">
 
-  <jsp:output omit-xml-declaration="yes" />
+	<jsp:output omit-xml-declaration="yes" />
 
-  <spring:url value="/resources/js/jquery.min.js" var="jquery_url" />
-	<spring:url value="/resources/js/jquery.ui.core.js" var="jquery_ui_core_url" />
-	<spring:url value="/resources/js/jquery.validator.js" var="jquery_validator_url" />
-	<spring:url value="/resources/js/jquery.ui.datepicker.js" var="jquery_datepicker_url" />
-	<spring:url value="/resources/js/jquery.ui.timepicker.js" var="jquery_timepicker_url" />
-	<spring:url value="/resources/js/jquery.ui.mask.js" var="jquery_mask_url" />
-	<spring:url value="/resources/js/jquery.tipsy.js" var="jquery_tipsy_url" />
+
+
+
+	<spring:url value="/resources/js/jquery.min.js" var="jquery_url" />
+	<spring:url value="/resources/js/jquery.ui.core.js"
+		var="jquery_ui_core_url" />
+	<spring:url value="/resources/js/jquery.validator.js"
+		var="jquery_validator_url" />
+	<spring:url value="/resources/js/jquery.ui.datepicker.js"
+		var="jquery_datepicker_url" />
+	<spring:url value="/resources/js/jquery.ui.timepicker.js"
+		var="jquery_timepicker_url" />
+	<spring:url value="/resources/js/jquery.ui.mask.js"
+		var="jquery_mask_url" />
+	<spring:url value="/resources/js/jquery.tipsy.js"
+		var="jquery_tipsy_url" />
+
+	<spring:url value="/resources/js/jquery.dataTables.js"
+		var="jqueryDatatable" />
+	<spring:url value="/resources/js/bootstrap-affix.js"
+		var="bootstrap_affix" />
+	<spring:url value="/resources/js/bootstrap-alert.js"
+		var="bootstrap_alert" />
+	<spring:url value="/resources/js/bootstrap-button.js"
+		var="bootstrap_button" />
+	<spring:url value="/resources/js/bootstrap-carousel.js"
+		var="bootstrap_carousel" />
+	<spring:url value="/resources/js/bootstrap-collapse.js"
+		var="bootstrap_collapse" />
+	<spring:url value="/resources/js/bootstrap-dropdown.js"
+		var="bootstrap_dropdown" />
+	<spring:url value="/resources/js/bootstrap-modal.js"
+		var="bootstrap_modal" />
+	<spring:url value="/resources/js/bootstrap-popover.js"
+		var="bootstrap_popover" />
+	<spring:url value="/resources/js/bootstrap-scrollspy.js"
+		var="bootstrap_scrollspy" />
+	<spring:url value="/resources/js/bootstrap-tab.js" var="bootstrap_tab" />
+	<spring:url value="/resources/js/bootstrap-tooltip.js"
+		var="bootstrap_tooltip" />
+	<spring:url value="/resources/js/bootstrap-transition.js"
+		var="bootstrap_transition" />
+	<spring:url value="/resources/js/bootstrap-typeahead.js"
+		var="bootstrap_typeahead" />
+	<spring:url value="/resources/js/DT_bootstrap.js" var="DT_bootstrap" />
+	<spring:url value="/resources/js/bootstrap.min.js" var="bootstrap_min" />
+	<spring:url value="/resources/js/bootstrap.js" var="bootstrap_js" />
 	<spring:url value="/resources/images/favicon.ico" var="favicon" />
+	<spring:url value="/resources/styles/bootstrap.min.css"
+		var="bootstrap_min_url" />
+	<spring:url value="/resources/styles/bootstrap.css" var="bootstrap_url" />
+	<spring:url value="/resources/styles/bootstrap-responsive.css"
+		var="bootstrap_responsive" />
+	<spring:url value="/resources/styles/bootstrap-responsive.min.css"
+		var="bootstrap_min_responsive" />
+	<spring:url value="/resources/styles/docs.css" var="docs" />
+	<spring:url value="/resources/styles/prettify.css" var="prettify" />
+	<spring:url value="/resources/styles/jquery.ui.timepicker.css"
+		var="jquery_timepicker_css_url" />
+	<spring:url value="/resources/styles/jquery.tipsy.css"
+		var="jquery_tipsy_css_url" />
+		
+		
+	<c:if test="${empty sessionScope.theme}">
+		<c:set scope="session" var="theme" value="superhero"></c:set>
+	</c:if>
 	
-	<spring:url value="/resources/styles/bootstrap-1.2.0.min.css" var="bootstrap_url" />
-	<spring:url value="/resources/styles/jquery.ui.timepicker.css" var="jquery_timepicker_css_url" />
-	<spring:url value="/resources/styles/jquery.tipsy.css" var="jquery_tipsy_css_url" />
+	<spring:url value="http://netdna.bootstrapcdn.com/bootswatch/2.1.0/${sessionScope.theme}/bootstrap.min.css"
+		var="theme" />
+
+<!-- http://netdna.bootstrapcdn.com/bootswatch/2.1.0/readable/bootstrap.min.css -->
+
+
+
+<link rel="stylesheet" type="text/css" media="screen"
+		href="${theme}" />
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="${bootstrap_responsive}" />
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="${bootstrap_url}" />
-	<link rel="stylesheet" type="text/css" media="screen" href="${jquery_timepicker_css_url}" />
-	<link rel="stylesheet" type="text/css" media="screen" href="${jquery_tipsy_css_url}" />
+	<link rel="stylesheet" type="text/css" media="screen" href="${docs}" />
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="${prettify}" />
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="${jquery_timepicker_css_url}" />
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="${jquery_tipsy_css_url}" />
 	<link rel="SHORTCUT ICON" href="${favicon}" />
-	
+
 	<!-- Get the user local from the page context (it was set by Spring MVC's locale resolver) -->
 	<c:set var="userLocale">
-	  <c:out value="${pageContext.response.locale}" default="en" />
+		<c:out value="${pageContext.response.locale}" default="en" />
 	</c:set>
-	
-	<script type="text/javascript">var djConfig = {parseOnLoad: false, isDebug: false, locale: '${fn:toLowerCase(userLocale)}'};</script>
-	
-	<script src="${jquery_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
-	<script src="${jquery_datepicker_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
-	<script src="${jquery_timepicker_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
-	<script src="${jquery_ui_core_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
-	<script src="${jquery_tipsy_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
-	<script src="${jquery_validator_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
 
+
+	<script type="text/javascript">var djConfig = {parseOnLoad: false, isDebug: false, locale: '${fn:toLowerCase(userLocale)}'};</script>
+
+	<script src="${jquery_url}" type="text/javascript"><jsp:text/></script>
+	
+	
+	<script src="${jqueryDatatable}" type="text/javascript"><jsp:text/></script>
+	<script src="${DT_bootstrap}" type="text/javascript"><jsp:text/></script>
+
+	<script src="${jquery_datepicker_url}" type="text/javascript"><jsp:text/></script>
+	<script src="${jquery_timepicker_url}" type="text/javascript"><jsp:text/></script>
+	<script src="${jquery_ui_core_url}" type="text/javascript"><jsp:text/></script>
+	<script src="${jquery_tipsy_url}" type="text/javascript"><jsp:text/></script>
+	<script src="${jquery_validator_url}" type="text/javascript"><jsp:text/></script>
+
+	<script src="${bootstrap_transition}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_alert}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_modal}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_dropdown}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_scrollspy}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_tab}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_tooltip}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_popover}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_button}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_collapse}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_carousel}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_typeahead}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_affix}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_min}" type="text/javascript"><jsp:text/></script>
+	<script src="${bootstrap_js}" type="text/javascript"><jsp:text/></script>
 </jsp:root>
